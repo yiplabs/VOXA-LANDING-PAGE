@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Voxa — A voice in the machine. Yours.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #1A1B1E; }
+    body { -webkit-font-smoothing: antialiased; }
+    ::selection { background: rgba(217,107,59,0.35); color: #fff; }
+    @keyframes voxaDrift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  </style>
+</helmet>
+
+<div data-screen-label="Editorial Luxury Dark" style="min-height: 100vh; background: #1A1B1E; color: #E9E6E0; font-family: 'Instrument Sans', sans-serif; overflow-x: hidden">
+
+  <!-- ── MASTHEAD ─────────────────────────────── -->
+  <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px clamp(24px, 5vw, 72px); border-bottom: 1px solid rgba(233,230,224,0.12)">
+    <span style="font-family: 'Instrument Serif', serif; font-size: 26px; letter-spacing: 0.02em">Voxa</span>
+    <div style="display: flex; align-items: center; gap: 32px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">
+      <span style="color: rgba(233,230,224,0.45)">Open source — MIT</span>
+      <span style="color: rgba(233,230,224,0.45)">Windows / macOS / Linux</span>
+      <a href="{{ repoUrl }}" style="color: #E9E6E0; text-decoration: none; border-bottom: 1px solid rgba(233,230,224,0.4); padding-bottom: 3px" style-hover="color: #D96B3B; border-bottom-color: #D96B3B">GitHub</a>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────── -->
+  <section data-screen-label="Hero" style="padding: clamp(56px, 8vw, 120px) clamp(24px, 5vw, 72px) 0; max-width: 1440px; margin: 0 auto">
+    <div style="display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40); margin-bottom: clamp(28px, 4vw, 56px)">
+      <span>№ 01 — A desktop voice assistant</span>
+      <span>Private · Local-first · Open source</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(52px, 9.4vw, 148px); line-height: 0.98; letter-spacing: -0.015em; max-width: 12ch">A voice in the machine. <em style="color: #D96B3B">Yours.</em></h1>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 80px); align-items: end; margin-top: clamp(40px, 6vw, 88px)">
+      <div style="max-width: 46ch">
+        <p style="margin: 0; font-size: 19px; line-height: 1.65; color: rgba(233,230,224,0.72)">Voxa lives in a small glowing orb on your desktop. Tap it and talk; it answers in realtime — interruptible mid-sentence — and it can call tools. Your keys, your config, your notes: all of it stays on your machine.</p>
+        <div style="display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap">
+          <a href="{{ downloadUrl }}" style="display: inline-flex; background: #D96B3B; color: #1A1B1E; text-decoration: none; font-weight: 600; font-size: 15px; padding: 16px 34px; border-radius: 999px" style-hover="background: #E9814F">Download{{ platformSuffix }}</a>
+          <a href="{{ repoUrl }}" style="display: inline-flex; border: 1px solid rgba(233,230,224,0.35); color: #E9E6E0; text-decoration: none; font-weight: 500; font-size: 15px; padding: 16px 34px; border-radius: 999px" style-hover="border-color: #E9E6E0">Star on GitHub</a>
+        </div>
+        <p style="margin: 24px 0 0; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(233,230,224,0.38)">Bring your own model — Gemini Live (free), OpenAI Realtime, or fully offline</p>
+      </div>
+      <figure style="margin: 0">
+        <div style="border: 1px solid rgba(233,230,224,0.15); padding: 10px; background: #101218">
+          <img src="docs/assets/hero.png" alt="The Voxa orb, photographed dark" style="width: 100%; display: block; animation: {{ orbAnim }}">
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(233,230,224,0.38); margin-top: 12px"><span>Plate I — The orb, idle</span><span>Skin: Orbit / Palette: Ember</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ─────────────────────────────── -->
+  <section data-screen-label="How it works" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(24px, 5vw, 72px) 0">
+    <div style="border-top: 1px solid rgba(233,230,224,0.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">
+      <span>№ 02</span><span>How it works</span>
+    </div>
+    <h2 style="margin: 28px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5vw, 68px); letter-spacing: -0.01em; line-height: 1.05; max-width: 22ch">Two processes. One machine. <em>No backend.</em></h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 64px); margin-top: clamp(40px, 6vw, 72px)">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+        <div style="border-top: 1px solid rgba(233,230,224,0.18); padding-top: 24px">
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 30px; color: #D96B3B">{{ step.num }}</div>
+          <h3 style="margin: 14px 0 12px; font-size: 21px; font-weight: 600; letter-spacing: -0.01em">{{ step.title }}</h3>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.7; color: rgba(233,230,224,0.62)">{{ step.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top: clamp(48px, 6vw, 80px); border: 1px solid rgba(233,230,224,0.15); padding: clamp(28px, 4vw, 48px)">
+      <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40); text-align: center">The whole architecture — everything below this line runs on your machine</div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: clamp(16px, 3vw, 40px); flex-wrap: wrap; margin-top: 36px; text-align: center">
+        <div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 28px">The orb</div>
+          <div style="font-size: 13px; color: rgba(233,230,224,0.45); margin-top: 6px">Tauri · reads voxa-config.json</div>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D96B3B; letter-spacing: 0.08em">⟷ voice · tool calls</div>
+        <div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 28px">A realtime model</div>
+          <div style="font-size: 13px; color: rgba(233,230,224,0.45); margin-top: 6px">Gemini Live · OpenAI · local daemon</div>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D96B3B; letter-spacing: 0.08em">⟷ :3010 loopback</div>
+        <div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: 28px">The harness</div>
+          <div style="font-size: 13px; color: rgba(233,230,224,0.45); margin-top: 6px">memory · 21 connectors · forge</div>
+        </div>
+      </div>
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: rgba(233,230,224,0.38); text-align: center; margin-top: 32px">GET/POST /api/voice/tools — any server speaking the contract is a valid tool source</div>
+    </div>
+  </section>
+
+  <!-- ── THE LOCAL BRAIN ─────────────────────────────── -->
+  <section data-screen-label="The local brain" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(24px, 5vw, 72px) 0">
+    <div style="border-top: 1px solid rgba(233,230,224,0.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">
+      <span>№ 03</span><span>The local brain</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 80px); margin-top: 28px; align-items: start">
+      <div>
+        <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5vw, 68px); letter-spacing: -0.01em; line-height: 1.05">Notes that answer <em>back.</em></h2>
+        <p style="margin: 28px 0 0; font-size: 17px; line-height: 1.75; color: rgba(233,230,224,0.68); max-width: 46ch">Voxa searches, reads, and saves a folder of plain Markdown notes by voice — offline, no API key. Point it at an Obsidian vault and it talks to the notes you already keep. They remain what they always were: files on disk.</p>
+      </div>
+      <div style="border-left: 2px solid #D96B3B; padding: 8px 0 8px clamp(24px, 3vw, 44px); display: flex; flex-direction: column; gap: 26px">
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.38)">You</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.25; margin-top: 8px">“Remember the standup moved to 10am.”</div>
+        </div>
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #D96B3B">Voxa</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.25; margin-top: 8px; color: rgba(233,230,224,0.85)">“Noted.”</div>
+        </div>
+        <div style="font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(233,230,224,0.30)">— later —</div>
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.38)">You</div>
+          <div style="font-family: 'Instrument Serif', serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.25; margin-top: 8px">“What time is standup?”</div>
+        </div>
+        <div>
+          <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #D96B3B">Voxa</div>
+          <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.25; margin-top: 8px; color: rgba(233,230,224,0.85)">“Standup’s at 10.”</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE FORGE ─────────────────────────────── -->
+  <section data-screen-label="The Forge" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(24px, 5vw, 72px) 0">
+    <div style="border-top: 1px solid rgba(233,230,224,0.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">
+      <span>№ 04</span><span>The Forge — self-extension</span>
+    </div>
+    <h2 style="margin: 28px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5.4vw, 72px); letter-spacing: -0.01em; line-height: 1.08; max-width: 20ch">It builds its own connectors. <em>By voice.</em></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 80px); margin-top: clamp(36px, 5vw, 56px); align-items: start">
+      <p style="margin: 0; font-size: 17px; line-height: 1.75; color: rgba(233,230,224,0.68); max-width: 48ch">Say <em style="color: #E9E6E0">“build me a connector for the OpenWeather API”</em> and the forge writes one — from a declarative, data-only HTTP spec, guarded against SSRF. It never executes generated code; there is no eval anywhere in the path. Tap the orb to reload, and the new tools are live.</p>
+      <div style="border: 1px solid rgba(233,230,224,0.15); padding: 28px 30px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 2; color: rgba(233,230,224,0.62)">
+        <div><span style="color: #D96B3B">spec</span> — declarative HTTP, data only</div>
+        <div><span style="color: #D96B3B">validate</span> — schema + SSRF guard</div>
+        <div><span style="color: #D96B3B">write</span> — connectors/openweather/index.mjs</div>
+        <div style="color: rgba(233,230,224,0.38); margin-top: 8px">// tools live on next session. no eval, ever.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONNECTOR INDEX ─────────────────────────────── -->
+  <section data-screen-label="Connectors" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(24px, 5vw, 72px) 0">
+    <div style="border-top: 1px solid rgba(233,230,224,0.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">
+      <span>№ 05</span><span>An index of connectors — 21 shipped</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 80px); margin-top: 28px; align-items: start">
+      <h2 style="margin: 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5vw, 68px); letter-spacing: -0.01em; line-height: 1.05">Each one, a single small <em>module.</em></h2>
+      <p style="margin: 6px 0 0; font-size: 17px; line-height: 1.75; color: rgba(233,230,224,0.68); max-width: 46ch">No build step, no dependencies beyond the standard library. The harness auto-discovers them; toggle, configure, and test from a quiet page at localhost:3010.</p>
+    </div>
+    <div style="columns: 3; column-gap: clamp(32px, 5vw, 80px); margin-top: clamp(40px, 5vw, 64px)">
+      <sc-for list="{{ connectors }}" as="c" hint-placeholder-count="21">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(233,230,224,0.12); break-inside: avoid">
+          <span style="font-size: 16.5px; font-weight: 500">{{ c.name }}</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: rgba(233,230,224,0.35)">{{ c.id }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ── SOULS & SKINS ─────────────────────────────── -->
+  <section data-screen-label="Souls and skins" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(24px, 5vw, 72px) 0">
+    <div style="border-top: 1px solid rgba(233,230,224,0.12); padding-top: 22px; display: flex; justify-content: space-between; gap: 24px; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">
+      <span>№ 06</span><span>Souls &amp; skins</span>
+    </div>
+    <h2 style="margin: 28px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5.4vw, 72px); letter-spacing: -0.01em; line-height: 1.08; max-width: 18ch">Seven souls. Ten skins. Eight palettes. <em>Live.</em></h2>
+    <p style="margin: 28px 0 0; font-size: 17px; line-height: 1.75; color: rgba(233,230,224,0.68); max-width: 56ch">Switch any of it by voice — <em style="color: #E9E6E0">“set skin to reactor; use the ice palette”</em> — or declare your own in config, no recompile. A soul is a persona: who Voxa is when it speaks.</p>
+
+    <figure style="margin: clamp(40px, 5vw, 64px) 0 0">
+      <div style="border: 1px solid rgba(233,230,224,0.15); padding: 10px; background: #101218">
+        <img src="docs/assets/skins.png" alt="The ten built-in orb skins" style="width: 100%; display: block">
+      </div>
+      <figcaption style="display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(233,230,224,0.38); margin-top: 12px"><span>Plate II — The ten built-in skins</span><span>Orbit → Crystal Cage</span></figcaption>
+    </figure>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 0; margin-top: clamp(40px, 5vw, 64px); border-top: 1px solid rgba(233,230,224,0.12)">
+      <sc-for list="{{ souls }}" as="s" hint-placeholder-count="7">
+        <div style="padding: 26px 28px 26px 0; border-bottom: 1px solid rgba(233,230,224,0.12)">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 26px">{{ s.name }}</div>
+          <p style="margin: 8px 0 0; font-size: 14.5px; line-height: 1.6; color: rgba(233,230,224,0.55)">{{ s.tagline }}</p>
+        </div>
+      </sc-for>
+      <div style="padding: 26px 28px 26px 0; border-bottom: 1px solid rgba(233,230,224,0.12); display: flex; flex-direction: column; justify-content: center; gap: 12px">
+        <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.38)">Eight palettes</div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="8">
+            <span title="{{ p.id }}" style="width: 18px; height: 18px; border-radius: 50%; background: {{ p.c }}; display: inline-block"></span>
+          </sc-for>
+        </div>
+        <div style="font-size: 13px; color: rgba(233,230,224,0.45)">ember · ice · violet · emerald · sunset · aurora · plasma · solar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRIVACY MANIFESTO ─────────────────────────────── -->
+  <section data-screen-label="Privacy" style="padding: clamp(80px, 11vw, 160px) clamp(24px, 5vw, 72px); margin-top: clamp(64px, 9vw, 128px); border-top: 1px solid rgba(233,230,224,0.12); border-bottom: 1px solid rgba(233,230,224,0.12); background: #16171A">
+    <div style="max-width: 980px; margin: 0 auto; text-align: center">
+      <div style="font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #D96B3B">№ 07 — A short statement on privacy</div>
+      <p style="margin: clamp(32px, 4vw, 48px) 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(30px, 4.4vw, 56px); line-height: 1.28; letter-spacing: -0.01em">No account. No telemetry. No backend. Your keys stay in a local file. Your notes are plain Markdown on disk. <em style="color: rgba(233,230,224,0.55)">Privacy here is not a policy — it is the absence of anywhere else for your data to go.</em></p>
+      <div style="margin-top: clamp(32px, 4vw, 48px); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(233,230,224,0.40)">Private by design · fast by habit · useful before it is impressive</div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER CTA ─────────────────────────────── -->
+  <footer data-screen-label="Footer" style="max-width: 1440px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 72px) 56px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 5vw, 80px); align-items: start">
+      <div>
+        <div style="font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(233,230,224,0.40)">№ 08 — Begin</div>
+        <h2 style="margin: 24px 0 0; font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(38px, 5vw, 64px); letter-spacing: -0.01em; line-height: 1.08">Two commands, then <em>talk.</em></h2>
+        <p style="margin: 24px 0 0; font-size: 16px; line-height: 1.7; color: rgba(233,230,224,0.62); max-width: 44ch">Rust stable and Node 18. Paste a free Gemini API key when prompted — stored locally — allow the microphone, and say something.</p>
+        <div style="display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap">
+          <a href="{{ downloadUrl }}" style="display: inline-flex; background: #D96B3B; color: #1A1B1E; text-decoration: none; font-weight: 600; font-size: 15px; padding: 16px 34px; border-radius: 999px" style-hover="background: #E9814F">Download{{ platformSuffix }}</a>
+          <a href="{{ repoUrl }}" style="display: inline-flex; border: 1px solid rgba(233,230,224,0.35); color: #E9E6E0; text-decoration: none; font-weight: 500; font-size: 15px; padding: 16px 34px; border-radius: 999px" style-hover="border-color: #E9E6E0">Star on GitHub</a>
+        </div>
+      </div>
+      <div style="border: 1px solid rgba(233,230,224,0.15); background: #101218">
+        <div style="display: flex; justify-content: space-between; padding: 14px 22px; border-bottom: 1px solid rgba(233,230,224,0.12); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(233,230,224,0.40)"><span>Quick start</span><span>bash</span></div>
+        <pre style="margin: 0; padding: 26px 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9; color: rgba(233,230,224,0.85); overflow-x: auto"><span style="color: rgba(233,230,224,0.35)"># the harness — the brain ships enabled</span>
+cd packages/harness &amp;&amp; npm install
+npm start           <span style="color: #D96B3B"># http://localhost:3010</span>
+
+<span style="color: rgba(233,230,224,0.35)"># the orb</span>
+cd ../orb &amp;&amp; npm install
+npm run tauri dev</pre>
+      </div>
+    </div>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: clamp(56px, 8vw, 96px); padding-top: 26px; border-top: 1px solid rgba(233,230,224,0.12); font-size: 13px; color: rgba(233,230,224,0.40)">
+      <span style="font-family: 'Instrument Serif', serif; font-size: 22px; color: #E9E6E0">Voxa</span>
+      <span style="letter-spacing: 0.16em; text-transform: uppercase">MIT License — no cloud account, ever</span>
+      <a href="{{ repoUrl }}" style="color: rgba(233,230,224,0.62); text-decoration: none; border-bottom: 1px solid rgba(233,230,224,0.25); padding-bottom: 2px" style-hover="color: #D96B3B; border-bottom-color: #D96B3B">github.com/przemekzur/voxa</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;orbMotion&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Hero&quot;}, &quot;downloadUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://github.com/przemekzur/voxa/releases&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;repoUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://github.com/przemekzur/voxa&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  state = { platform: "" };
+
+  componentDidMount() {
+    const ua = navigator.userAgent || "";
+    let p = "";
+    if (/Mac/i.test(ua)) p = " for macOS";
+    else if (/Win/i.test(ua)) p = " for Windows";
+    else if (/Linux|X11/i.test(ua)) p = " for Linux";
+    this.setState({ platform: p });
+  }
+
+  renderVals() {
+    const motion = this.props.orbMotion ?? true;
+    return {
+      repoUrl: this.props.repoUrl ?? "https://github.com/przemekzur/voxa",
+      downloadUrl: this.props.downloadUrl ?? "https://github.com/przemekzur/voxa/releases",
+      platformSuffix: this.state.platform,
+      orbAnim: motion ? "voxaDrift 9s ease-in-out infinite" : "none",
+      steps: [
+        { num: "i.", title: "Run the harness", body: "One npm start brings the connector harness up on loopback \u2014 port 3010 \u2014 with the Markdown brain already enabled." },
+        { num: "ii.", title: "Launch the orb", body: "A frameless, always-on-top Tauri orb settles onto your desktop. It reads voxa-config.json and finds the harness on its own." },
+        { num: "iii.", title: "Tap and talk", body: "Open mic, low latency, barge-in \u2014 interrupt it mid-sentence. The model calls tools; the tools run on your machine." },
+      ],
+      connectors: [
+        { id: "memory", name: "Memory" },
+        { id: "forge", name: "Forge" },
+        { id: "weather", name: "Weather" },
+        { id: "websearch", name: "Web Search" },
+        { id: "github", name: "GitHub" },
+        { id: "hackernews", name: "Hacker News" },
+        { id: "wiki", name: "Wikipedia" },
+        { id: "crypto", name: "Crypto" },
+        { id: "currency", name: "Currency" },
+        { id: "spotify", name: "Spotify" },
+        { id: "timers", name: "Timers" },
+        { id: "lists", name: "Lists" },
+        { id: "screen", name: "Screen" },
+        { id: "observe", name: "Observe" },
+        { id: "claude-code", name: "Claude Code" },
+        { id: "external-agents", name: "External Agents" },
+        { id: "xcom-news", name: "X News" },
+        { id: "quotes", name: "Quotes" },
+        { id: "vibeengine", name: "Vibe Engine" },
+        { id: "vibeplay", name: "Vibe Play" },
+        { id: "example-echo", name: "Echo (example)" },
+      ],
+      souls: [
+        { name: "Voxa", tagline: "Calm, sharp, quietly powerful. The default." },
+        { name: "Butler", tagline: "Dry wit, unflappable, two steps ahead." },
+        { name: "Spark", tagline: "Warmer, brisk, can-do \u2014 a lighter touch." },
+        { name: "Sage", tagline: "Minimal and thoughtful \u2014 built for deep focus." },
+        { name: "Mission Control", tagline: "Terse, professional, status-report cadence." },
+        { name: "Companion", tagline: "Warm, conversational, an encouraging presence." },
+        { name: "Gremlin", tagline: "Sardonic and sharp-tongued \u2014 but quietly brilliant." },
+      ],
+      palettes: [
+        { id: "ember", c: "#FFA149" },
+        { id: "ice", c: "#6EC8FF" },
+        { id: "violet", c: "#C07CFF" },
+        { id: "emerald", c: "#4ADE9C" },
+        { id: "sunset", c: "#FF7A9C" },
+        { id: "aurora", c: "#58E6C4" },
+        { id: "plasma", c: "#E86BFF" },
+        { id: "solar", c: "#FFD75E" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
