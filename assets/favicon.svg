@@ -1,14 +1,64 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0A0E1A"/>
   <defs>
-    <radialGradient id="core" cx="50%" cy="46%" r="60%">
-      <stop offset="0%" stop-color="#FFF8EB"/>
-      <stop offset="28%" stop-color="#FFD69E"/>
-      <stop offset="62%" stop-color="#FF8A2B"/>
-      <stop offset="100%" stop-color="#96380E" stop-opacity="0.1"/>
+    <radialGradient id="bg" cx="50%" cy="42%" r="80%">
+      <stop offset="0%" stop-color="#151C32"/>
+      <stop offset="60%" stop-color="#0C1122"/>
+      <stop offset="100%" stop-color="#0A0E1A"/>
     </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF8A2B" stop-opacity="0.6"/>
+      <stop offset="45%" stop-color="#FF7C2A" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FF7C2A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="46%" r="56%">
+      <stop offset="0%" stop-color="#FFFDF6"/>
+      <stop offset="20%" stop-color="#FFEBC4"/>
+      <stop offset="46%" stop-color="#FFA043"/>
+      <stop offset="76%" stop-color="#D8571B"/>
+      <stop offset="100%" stop-color="#7A2D0C" stop-opacity="0.4"/>
+    </radialGradient>
+    <linearGradient id="ringBack" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.05"/>
+      <stop offset="50%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="ringFront" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.25"/>
+      <stop offset="55%" stop-color="#7EEFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#C6F8FF"/>
+    </linearGradient>
+    <linearGradient id="flare" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD9A6" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFF6E3" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#FFD9A6" stop-opacity="0"/>
+    </linearGradient>
   </defs>
-  <circle cx="32" cy="32" r="21" fill="url(#core)"/>
-  <ellipse cx="32" cy="32" rx="27" ry="9.5" fill="none" stroke="#00E5FF" stroke-opacity="0.75" stroke-width="2" transform="rotate(-18 32 32)"/>
-  <circle cx="53.5" cy="24.5" r="2.4" fill="#00E5FF"/>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- ambient glow -->
+  <circle cx="32" cy="31" r="28" fill="url(#glow)"/>
+
+  <!-- orbital ring, back half (behind the core) -->
+  <g transform="rotate(-19 32 31)">
+    <path d="M 5 31 A 27 9.5 0 0 1 59 31" fill="none" stroke="url(#ringBack)" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+
+  <!-- the core -->
+  <circle cx="32" cy="31" r="16.5" fill="url(#core)"/>
+
+  <!-- horizontal lens flare -->
+  <ellipse cx="32" cy="30" rx="21" ry="2.1" fill="url(#flare)"/>
+  <ellipse cx="32" cy="30" rx="9" ry="0.9" fill="#FFFFFF" opacity="0.9"/>
+
+  <!-- orbital ring, front half (over the core) -->
+  <g transform="rotate(-19 32 31)">
+    <path d="M 5 31 A 27 9.5 0 0 0 59 31" fill="none" stroke="url(#ringFront)" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+
+  <!-- glints on the ring + drifting particles -->
+  <circle cx="53.5" cy="38.5" r="2.6" fill="#BDF6FF" opacity="0.28"/>
+  <circle cx="53.5" cy="38.5" r="1.5" fill="#8FF1FF"/>
+  <circle cx="12.5" cy="20.5" r="1.1" fill="#00E5FF" opacity="0.75"/>
+  <circle cx="44" cy="14" r="0.9" fill="#FFC98F" opacity="0.8"/>
 </svg>
