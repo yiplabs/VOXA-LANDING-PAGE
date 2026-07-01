@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Voxa — Talk to your desktop.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F5F3EE; }
+    body { -webkit-font-smoothing: antialiased; }
+    ::selection { background: rgba(228,90,18,0.22); }
+  </style>
+</helmet>
+
+<div data-screen-label="Engineered Minimal" style="min-height: 100vh; background: #F5F3EE; color: #1C1B16; font-family: 'IBM Plex Sans', sans-serif; overflow-x: hidden">
+
+  <!-- ── SPEC HEADER ─────────────────────────────── -->
+  <header style="border-bottom: 2px solid #1C1B16; padding: 18px clamp(20px, 4vw, 56px); display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap">
+    <div style="display: flex; align-items: baseline; gap: 20px">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 18px; letter-spacing: 0.28em">VOXA</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B675C; letter-spacing: 0.08em">DESKTOP VOICE UNIT — TECHNICAL SHEET</span>
+    </div>
+    <div style="display: flex; gap: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #6B675C">
+      <span>DOC VX-01 · REV 2026-07</span>
+      <span>LICENSE: MIT</span>
+      <a href="{{ repoUrl }}" style="color: #1C1B16; text-decoration: none; border-bottom: 1px solid #1C1B16" style-hover="color: #E45A12; border-bottom-color: #E45A12">GITHUB ↗</a>
+    </div>
+  </header>
+
+  <!-- ── HERO ─────────────────────────────── -->
+  <section data-screen-label="Hero" style="max-width: 1360px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 56px) 0">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(32px, 4vw, 64px); align-items: stretch">
+      <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+        <div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">01 — PRODUCT</div>
+          <h1 style="margin: 20px 0 0; font-size: clamp(44px, 6.4vw, 84px); font-weight: 700; letter-spacing: -0.035em; line-height: 1.0">Talk to your desktop.</h1>
+          <p style="margin: 26px 0 0; font-size: 18px; line-height: 1.65; color: #4A463C; max-width: 46ch">A private, local-first, open-source voice assistant in a small glowing orb. Tap it, talk; it answers in realtime with barge-in, and it can call tools. Bring your own model. Nothing leaves the machine.</p>
+          <div style="display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap">
+            <a href="{{ downloadUrl }}" style="display: inline-flex; background: #1C1B16; color: #F5F3EE; text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 30px" style-hover="background: #E45A12">Download{{ platformSuffix }}</a>
+            <a href="{{ repoUrl }}" style="display: inline-flex; border: 1px solid #1C1B16; color: #1C1B16; text-decoration: none; font-weight: 500; font-size: 15px; padding: 15px 30px" style-hover="border-color: #E45A12; color: #E45A12">Star on GitHub</a>
+          </div>
+        </div>
+        <div style="border: 1px solid #D8D4C8; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))">
+          <div style="padding: 14px 18px; border-right: 1px solid #D8D4C8"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8578">RUNTIME</div><div style="font-size: 14px; font-weight: 600; margin-top: 5px">Tauri</div></div>
+          <div style="padding: 14px 18px; border-right: 1px solid #D8D4C8"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8578">PLATFORMS</div><div style="font-size: 14px; font-weight: 600; margin-top: 5px">Win / mac / Linux</div></div>
+          <div style="padding: 14px 18px; border-right: 1px solid #D8D4C8"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8578">MODELS</div><div style="font-size: 14px; font-weight: 600; margin-top: 5px">BYO × 3</div></div>
+          <div style="padding: 14px 18px"><div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.16em; color: #8A8578">ACCOUNT</div><div style="font-size: 14px; font-weight: 600; margin-top: 5px; color: #E45A12">None</div></div>
+        </div>
+      </div>
+      <figure style="margin: 0; display: flex; flex-direction: column">
+        <div style="background: #0A0E1A; border: 1px solid #1C1B16; flex: 1; display: flex; align-items: center; justify-content: center; min-height: 380px; overflow: hidden">
+          <img src="docs/assets/hero.png" alt="The Voxa orb — dark plate" style="width: 100%; height: 100%; object-fit: cover; display: block">
+        </div>
+        <figcaption style="display: flex; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #6B675C; padding: 10px 2px 0"><span>FIG. 01 — THE ORB, IDLE STATE</span><span>SKIN: ORBIT · PALETTE: EMBER</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS / SCHEMATIC ─────────────────────────────── -->
+  <section data-screen-label="How it works" style="max-width: 1360px; margin: clamp(56px, 8vw, 104px) auto 0; padding: 0 clamp(20px, 4vw, 56px)">
+    <div style="border-top: 2px solid #1C1B16; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">02 — OPERATION</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8578">THREE STEPS, TWO PROCESSES, ONE MACHINE</span>
+    </div>
+    <h2 style="margin: 24px 0 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em">How it works</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border: 1px solid #D8D4C8; margin-top: 32px">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+        <div style="padding: 26px 26px 24px; border-right: 1px solid #D8D4C8">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #E45A12">{{ step.num }}</div>
+          <h3 style="margin: 12px 0 8px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em">{{ step.title }}</h3>
+          <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.6; color: #4A463C">{{ step.body }}</p>
+          <code style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #1C1B16; background: #EDEAE2; padding: 9px 12px; white-space: pre-wrap">{{ step.code }}</code>
+        </div>
+      </sc-for>
+    </div>
+
+    <!-- schematic -->
+    <div style="border: 1px solid #1C1B16; margin-top: 40px; position: relative; padding: 44px clamp(20px, 3vw, 40px) 32px; background: #F8F6F1">
+      <span style="position: absolute; top: -9px; left: 24px; background: #F8F6F1; padding: 0 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #1C1B16">SCHEMATIC — YOUR MACHINE, NO BACKEND</span>
+      <span style="position: absolute; top: 10px; right: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #8A8578">SCALE — N/A</span>
+      <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0">
+        <div style="border: 1px solid #1C1B16; background: #F5F3EE; padding: 20px 22px">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #E45A12">UNIT A — ORB</div>
+          <div style="font-size: 16px; font-weight: 600; margin-top: 6px">Tauri app · frameless, always-on-top</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B675C; margin-top: 6px">reads voxa-config.json</div>
+        </div>
+        <div style="padding: 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B675C; text-align: center; letter-spacing: 0.06em">
+          <div style="border-bottom: 1px solid #1C1B16; padding-bottom: 4px">VOICE / AUDIO ⟷</div>
+          <div style="padding-top: 4px">⟷ TOOL CALLS</div>
+        </div>
+        <div style="border: 1px solid #1C1B16; background: #F5F3EE; padding: 20px 22px">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #E45A12">UNIT B — REALTIME MODEL</div>
+          <div style="font-size: 16px; font-weight: 600; margin-top: 6px">Bring your own</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6B675C; margin-top: 6px">Gemini Live (free) · OpenAI Realtime · local daemon (offline)</div>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center; padding: 6px 0"><div style="width: 1px; height: 34px; background: #1C1B16"></div></div>
+      <div style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #6B675C; letter-spacing: 0.06em; margin-bottom: 8px">GET/POST /api/voice/tools — 127.0.0.1 LOOPBACK ONLY</div>
+      <div style="border: 1px solid #1C1B16; background: #F5F3EE; padding: 20px 22px">
+        <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #E45A12">UNIT C — CONNECTOR HARNESS · PORT 3010</div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8A8578">NODE · ZERO DEPENDENCIES</div>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 11.5px">
+          <span style="border: 1px solid #D8D4C8; padding: 5px 10px">memory — .md notes</span>
+          <span style="border: 1px solid #D8D4C8; padding: 5px 10px">connectors × 21</span>
+          <span style="border: 1px solid #D8D4C8; padding: 5px 10px">forge — build-agent</span>
+        </div>
+      </div>
+      <p style="margin: 18px 0 0; font-size: 13.5px; line-height: 1.6; color: #6B675C; max-width: 76ch">NOTE — Any server speaking the tool contract is a valid tool source. The harness URL is configurable; point the orb at your own service, or at nothing.</p>
+    </div>
+  </section>
+
+  <!-- ── LOCAL BRAIN ─────────────────────────────── -->
+  <section data-screen-label="The local brain" style="max-width: 1360px; margin: clamp(56px, 8vw, 104px) auto 0; padding: 0 clamp(20px, 4vw, 56px)">
+    <div style="border-top: 2px solid #1C1B16; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">03 — MEMORY</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8578">OFFLINE · NO API KEY · PLAIN FILES</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 64px); margin-top: 24px; align-items: start">
+      <div>
+        <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em">The local brain</h2>
+        <p style="margin: 20px 0 0; font-size: 16px; line-height: 1.7; color: #4A463C; max-width: 48ch">Voxa searches, reads, and saves a folder of plain Markdown notes by voice. Point <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">brainDir</span> at an Obsidian vault and talk to the notes you already keep. They stay what they are — files on disk, yours to grep.</p>
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; margin-top: 24px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: #4A463C">
+          <span style="color: #E45A12">memory_search</span><span>find notes by content</span>
+          <span style="color: #E45A12">memory_read</span><span>read one aloud</span>
+          <span style="color: #E45A12">memory_save</span><span>write a new .md file</span>
+          <span style="color: #E45A12">memory_list</span><span>what's in the folder</span>
+        </div>
+      </div>
+      <div style="border: 1px solid #1C1B16">
+        <div style="display: flex; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid #1C1B16; background: #EDEAE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: #4A463C"><span>TRANSCRIPT — SPECIMEN</span><span>LOCAL SESSION</span></div>
+        <div style="padding: 22px 20px; display: grid; grid-template-columns: auto 1fr; gap: 14px 16px; font-size: 15px; line-height: 1.5">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8A8578; padding-top: 4px">YOU</span><span>“Remember the standup moved to 10am.”</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #E45A12; padding-top: 4px">VOXA</span><span>“Noted.” <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #8A8578">→ memory_save · standup.md</span></span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #B5B0A3; padding-top: 4px">⋯</span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: #B5B0A3; align-self: center">LATER</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #8A8578; padding-top: 4px">YOU</span><span>“What time is standup?”</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #E45A12; padding-top: 4px">VOXA</span><span>“Standup’s at 10.”</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THE FORGE ─────────────────────────────── -->
+  <section data-screen-label="The Forge" style="max-width: 1360px; margin: clamp(56px, 8vw, 104px) auto 0; padding: 0 clamp(20px, 4vw, 56px)">
+    <div style="border-top: 2px solid #1C1B16; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">04 — SELF-EXTENSION</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8578">DECLARATIVE SPEC · SSRF-GUARDED · NO EVAL</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 64px); margin-top: 24px; align-items: start">
+      <div>
+        <h2 style="margin: 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em">The Forge</h2>
+        <p style="margin: 20px 0 0; font-size: 16px; line-height: 1.7; color: #4A463C; max-width: 48ch">Voxa builds its own connectors, by voice. Ask for one and the forge writes it from a declarative, data-only HTTP spec — it never executes generated code. Works for any public REST API; the new tools are live on the next session.</p>
+        <p style="margin: 16px 0 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6B675C">spec → validate → write. No eval in the path.</p>
+      </div>
+      <div style="border: 1px solid #1C1B16">
+        <div style="display: flex; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid #1C1B16; background: #EDEAE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: #4A463C"><span>PROCEDURE — FORGE RUN</span><span>№ 04.1</span></div>
+        <div style="padding: 22px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 2.0; color: #1C1B16; white-space: pre-wrap">“Build me a connector for the OpenWeather API.”
+
+<span style="color: #6B675C">→ forge.plan       declarative HTTP spec</span>
+<span style="color: #6B675C">→ forge.validate   schema + SSRF guard</span>
+<span style="color: #6B675C">→ forge.write      connectors/openweather/</span>
+
+<span style="color: #E45A12">✓ tap the orb to reload — tools are live</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONNECTOR TABLE ─────────────────────────────── -->
+  <section data-screen-label="Connectors" style="max-width: 1360px; margin: clamp(56px, 8vw, 104px) auto 0; padding: 0 clamp(20px, 4vw, 56px)">
+    <div style="border-top: 2px solid #1C1B16; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">05 — CONNECTORS</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8578">QTY 21 · ONE ES MODULE EACH · NO BUILD STEP</span>
+    </div>
+    <h2 style="margin: 24px 0 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em">Parts list</h2>
+    <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #4A463C; max-width: 62ch">The harness auto-discovers any <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">connectors/&lt;id&gt;/index.mjs</span>. Toggle, configure, and test each one at <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">localhost:3010</span>.</p>
+
+    <div style="border: 1px solid #1C1B16; margin-top: 28px">
+      <div style="display: grid; grid-template-columns: 56px 1.2fr 1.4fr 0.8fr; gap: 0 16px; padding: 10px 18px; background: #1C1B16; color: #F5F3EE; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em">
+        <span>№</span><span>NAME</span><span>MODULE</span><span style="text-align: right">CLASS</span>
+      </div>
+      <sc-for list="{{ connectors }}" as="c" hint-placeholder-count="21">
+        <div style="display: grid; grid-template-columns: 56px 1.2fr 1.4fr 0.8fr; gap: 0 16px; padding: 11px 18px; border-top: 1px solid #E3DFD4; font-size: 14px; align-items: baseline" style-hover="background: #EDEAE2">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8A8578">{{ c.n }}</span>
+          <span style="font-weight: 600">{{ c.name }}</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6B675C">{{ c.id }}/index.mjs</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #E45A12; text-align: right">{{ c.cls }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ── SOULS & SKINS ─────────────────────────────── -->
+  <section data-screen-label="Souls and skins" style="max-width: 1360px; margin: clamp(56px, 8vw, 104px) auto 0; padding: 0 clamp(20px, 4vw, 56px)">
+    <div style="border-top: 2px solid #1C1B16; padding-top: 16px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap">
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">06 — APPEARANCE &amp; CHARACTER</span>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #8A8578">7 SOULS × 10 SKINS × 8 PALETTES — SWITCHABLE BY VOICE</span>
+    </div>
+    <h2 style="margin: 24px 0 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em">Souls &amp; skins</h2>
+    <p style="margin: 18px 0 0; font-size: 16px; line-height: 1.7; color: #4A463C; max-width: 62ch">A soul is a persona — who Voxa is when it speaks. A skin is the orb's structure; a palette, its colour. All three switch live: <em>“set skin to reactor; use the ice palette.”</em> Custom ones go in config, no recompile.</p>
+
+    <figure style="margin: 28px 0 0">
+      <div style="background: #0A0E1A; border: 1px solid #1C1B16; padding: 0">
+        <img src="docs/assets/skins.png" alt="The ten built-in orb skins" style="width: 100%; display: block">
+      </div>
+      <figcaption style="display: flex; justify-content: space-between; gap: 16px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #6B675C; padding: 10px 2px 0"><span>FIG. 02 — SKINS, BUILT-IN, QTY 10</span><span>ORBIT → CRYSTAL CAGE</span></figcaption>
+    </figure>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 4vw, 56px); margin-top: 36px; align-items: start">
+      <div style="border: 1px solid #D8D4C8">
+        <div style="padding: 10px 16px; border-bottom: 1px solid #D8D4C8; background: #EDEAE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: #4A463C">SOULS — QTY 7</div>
+        <sc-for list="{{ souls }}" as="s" hint-placeholder-count="7">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 10px 16px; border-top: 1px solid #E3DFD4">
+            <span style="font-size: 14.5px; font-weight: 600; flex-shrink: 0">{{ s.name }}</span>
+            <span style="font-size: 13px; color: #6B675C; text-align: right">{{ s.tagline }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border: 1px solid #D8D4C8">
+        <div style="padding: 10px 16px; border-bottom: 1px solid #D8D4C8; background: #EDEAE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: #4A463C">PALETTES — QTY 8 · SIX COLOUR ROLES EACH</div>
+        <sc-for list="{{ palettes }}" as="p" hint-placeholder-count="8">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-top: 1px solid #E3DFD4">
+            <span style="width: 14px; height: 14px; background: {{ p.c }}; border: 1px solid rgba(28,27,22,0.25); flex-shrink: 0"></span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; width: 76px">{{ p.id }}</span>
+            <span style="font-size: 13px; color: #6B675C">{{ p.note }}</span>
+          </div>
+        </sc-for>
+        <div style="padding: 12px 16px; border-top: 1px solid #E3DFD4; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #8A8578; line-height: 1.6">ROLES — core · accent · hot · deep · line · white, as [r, g, b]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRIVACY ─────────────────────────────── -->
+  <section data-screen-label="Privacy" style="margin-top: clamp(56px, 8vw, 104px); background: #1C1B16; color: #F5F3EE; padding: clamp(48px, 7vw, 88px) clamp(20px, 4vw, 56px)">
+    <div style="max-width: 1360px; margin: 0 auto">
+      <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em">
+        <span style="color: #FF7C3A">07 — PRIVACY STATEMENT</span>
+        <span style="color: rgba(245,243,238,0.45)">BY DESIGN, NOT BY POLICY</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; margin-top: 36px; background: rgba(245,243,238,0.15); border: 1px solid rgba(245,243,238,0.15)">
+        <div style="background: #1C1B16; padding: 24px 22px"><div style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em">No account.</div><div style="font-size: 14px; color: rgba(245,243,238,0.55); margin-top: 8px; line-height: 1.6">There is nothing to sign up for.</div></div>
+        <div style="background: #1C1B16; padding: 24px 22px"><div style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em">No telemetry.</div><div style="font-size: 14px; color: rgba(245,243,238,0.55); margin-top: 8px; line-height: 1.6">Voxa phones nobody home.</div></div>
+        <div style="background: #1C1B16; padding: 24px 22px"><div style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em">No backend.</div><div style="font-size: 14px; color: rgba(245,243,238,0.55); margin-top: 8px; line-height: 1.6">The harness runs on loopback.</div></div>
+        <div style="background: #1C1B16; padding: 24px 22px"><div style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em">Keys in a local file.</div><div style="font-size: 14px; color: rgba(245,243,238,0.55); margin-top: 8px; line-height: 1.6">voxa-config.json, on your disk.</div></div>
+        <div style="background: #1C1B16; padding: 24px 22px"><div style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em">Notes are Markdown.</div><div style="font-size: 14px; color: rgba(245,243,238,0.55); margin-top: 8px; line-height: 1.6">Plain files. Yours to grep.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER CTA ─────────────────────────────── -->
+  <footer data-screen-label="Footer" style="max-width: 1360px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 56px) 48px">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(32px, 4vw, 64px); align-items: start">
+      <div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: #E45A12">08 — ASSEMBLY</div>
+        <h2 style="margin: 20px 0 0; font-size: clamp(30px, 3.6vw, 44px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.1">Two commands.<br>Then talk.</h2>
+        <p style="margin: 20px 0 0; font-size: 15px; line-height: 1.7; color: #4A463C; max-width: 44ch">Requires Rust stable and Node 18+. Paste a free Gemini API key when prompted — stored locally — allow the mic, and say something.</p>
+        <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap">
+          <a href="{{ downloadUrl }}" style="display: inline-flex; background: #1C1B16; color: #F5F3EE; text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 28px" style-hover="background: #E45A12">Download{{ platformSuffix }}</a>
+          <a href="{{ repoUrl }}" style="display: inline-flex; border: 1px solid #1C1B16; color: #1C1B16; text-decoration: none; font-weight: 500; font-size: 15px; padding: 14px 28px" style-hover="border-color: #E45A12; color: #E45A12">Star on GitHub</a>
+        </div>
+      </div>
+      <div style="border: 1px solid #1C1B16">
+        <div style="display: flex; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid #1C1B16; background: #EDEAE2; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.16em; color: #4A463C"><span>QUICK START</span><span>BASH</span></div>
+        <pre style="margin: 0; padding: 22px 20px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.9; color: #1C1B16; overflow-x: auto; background: #F8F6F1"><span style="color: #8A8578"># 1 — the connector harness (brain ships enabled)</span>
+cd packages/harness &amp;&amp; npm install
+npm start                <span style="color: #E45A12"># http://localhost:3010</span>
+
+<span style="color: #8A8578"># 2 — the orb</span>
+cd ../orb &amp;&amp; npm install
+npm run tauri dev</pre>
+      </div>
+    </div>
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: clamp(48px, 6vw, 72px); padding-top: 20px; border-top: 2px solid #1C1B16; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; color: #6B675C">
+      <span style="font-weight: 600; letter-spacing: 0.28em; color: #1C1B16">VOXA</span>
+      <span>PRIVATE BY DESIGN · FAST BY HABIT · USEFUL BEFORE IT IS IMPRESSIVE</span>
+      <span><a href="{{ repoUrl }}" style="color: #1C1B16; text-decoration: none; border-bottom: 1px solid #1C1B16" style-hover="color: #E45A12; border-bottom-color: #E45A12">GITHUB</a> — MIT LICENSE</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;downloadUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://github.com/przemekzur/voxa/releases&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}, &quot;repoUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;https://github.com/przemekzur/voxa&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}}">
+class Component extends DCLogic {
+  state = { platform: "" };
+
+  componentDidMount() {
+    const ua = navigator.userAgent || "";
+    let p = "";
+    if (/Mac/i.test(ua)) p = " for macOS";
+    else if (/Win/i.test(ua)) p = " for Windows";
+    else if (/Linux|X11/i.test(ua)) p = " for Linux";
+    this.setState({ platform: p });
+  }
+
+  renderVals() {
+    return {
+      repoUrl: this.props.repoUrl ?? "https://github.com/przemekzur/voxa",
+      downloadUrl: this.props.downloadUrl ?? "https://github.com/przemekzur/voxa/releases",
+      platformSuffix: this.state.platform,
+      steps: [
+        { num: "STEP 01", title: "Run the harness", body: "One npm start. The connector harness comes up on loopback with the Markdown brain already enabled.", code: "cd packages/harness && npm start" },
+        { num: "STEP 02", title: "Launch the orb", body: "A frameless, always-on-top Tauri orb lands on your desktop and finds the harness on its own.", code: "cd packages/orb && npm run tauri dev" },
+        { num: "STEP 03", title: "Tap and talk", body: "Open mic, low latency, barge-in \u2014 interrupt it mid-sentence. Tools run on your machine.", code: "\u201cWhat\u2019s on the Hacker News front page?\u201d" },
+      ],
+      connectors: [
+        { n: "01", id: "memory", name: "Memory", cls: "LOCAL" },
+        { n: "02", id: "forge", name: "Forge", cls: "META" },
+        { n: "03", id: "weather", name: "Weather", cls: "DATA" },
+        { n: "04", id: "websearch", name: "Web Search", cls: "DATA" },
+        { n: "05", id: "github", name: "GitHub", cls: "DEV" },
+        { n: "06", id: "hackernews", name: "Hacker News", cls: "DATA" },
+        { n: "07", id: "wiki", name: "Wikipedia", cls: "DATA" },
+        { n: "08", id: "crypto", name: "Crypto", cls: "DATA" },
+        { n: "09", id: "currency", name: "Currency", cls: "DATA" },
+        { n: "10", id: "spotify", name: "Spotify", cls: "MEDIA" },
+        { n: "11", id: "timers", name: "Timers", cls: "UTILITY" },
+        { n: "12", id: "lists", name: "Lists", cls: "UTILITY" },
+        { n: "13", id: "screen", name: "Screen", cls: "VISION" },
+        { n: "14", id: "observe", name: "Observe", cls: "VISION" },
+        { n: "15", id: "claude-code", name: "Claude Code", cls: "AGENT" },
+        { n: "16", id: "external-agents", name: "External Agents", cls: "AGENT" },
+        { n: "17", id: "xcom-news", name: "X News", cls: "DATA" },
+        { n: "18", id: "quotes", name: "Quotes", cls: "UTILITY" },
+        { n: "19", id: "vibeengine", name: "Vibe Engine", cls: "MEDIA" },
+        { n: "20", id: "vibeplay", name: "Vibe Play", cls: "MEDIA" },
+        { n: "21", id: "example-echo", name: "Echo (example)", cls: "DEV" },
+      ],
+      souls: [
+        { name: "Voxa", tagline: "calm, sharp, quietly powerful \u2014 default" },
+        { name: "Butler", tagline: "dry wit, unflappable, two steps ahead" },
+        { name: "Spark", tagline: "warmer, brisk, can-do" },
+        { name: "Sage", tagline: "minimal \u2014 built for deep focus" },
+        { name: "Mission Control", tagline: "terse, status-report cadence" },
+        { name: "Companion", tagline: "warm, conversational, encouraging" },
+        { name: "Gremlin", tagline: "sardonic, sharp-tongued, brilliant" },
+      ],
+      palettes: [
+        { id: "ember", c: "#E8721E", note: "default \u2014 the hot core" },
+        { id: "ice", c: "#4FB4EE", note: "cool blue-cyan" },
+        { id: "violet", c: "#A45FE8", note: "deep purple" },
+        { id: "emerald", c: "#2FBE7E", note: "green" },
+        { id: "sunset", c: "#E85C7E", note: "pink-red" },
+        { id: "aurora", c: "#33CFAB", note: "teal-green" },
+        { id: "plasma", c: "#CE4FE8", note: "magenta" },
+        { id: "solar", c: "#E8B62E", note: "warm yellow" },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

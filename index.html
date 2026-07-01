@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Voxa — A voice in the machine. Yours.</title>
+  <meta name="description" content="Voxa is a private, local-first, open-source voice assistant that lives in a small glowing orb on your desktop. Tap it, talk — it talks back in realtime, and it can call tools. Bring your own model. Nothing leaves your machine.">
+  <meta property="og:title" content="Voxa — A voice in the machine. Yours.">
+  <meta property="og:description" content="A private, local-first, open-source voice assistant in a small glowing orb on your desktop. Realtime voice, tools, a Markdown brain — no account, no telemetry, no backend.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/hero.png">
+  <meta name="theme-color" content="#0A0E1A">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="orb/voxa-orb-element.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<!-- ── TOP HUD BAR ─────────────────────────────── -->
+<header class="hud">
+  <div class="hud-left">
+    <span class="hud-brand">VOXA</span>
+    <span class="hud-ver">v0.x</span>
+  </div>
+  <div class="hud-right">
+    <span class="hud-status"><span class="hud-dot"></span>HARNESS :3010 — ONLINE</span>
+    <span class="hud-meta">MIT · LOCAL-FIRST · TAURI</span>
+    <a class="hud-gh" href="https://github.com/przemekzur/voxa">GITHUB ↗</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ── HERO ─────────────────────────────── -->
+<section class="hero">
+  <div class="hero-coords">LAT 00.000 / LON 127.0.0.1<br>SESSION — LOCAL ONLY</div>
+
+  <div class="hero-orb-wrap">
+    <div class="hero-orb-frame">
+      <voxa-orb id="hero-orb" skin="orbit" palette="ember" role="button" tabindex="0"
+                aria-label="Interactive Voxa orb demo — press Enter or tap to cycle idle, listening, and speaking states"></voxa-orb>
+      <noscript><img class="hero-orb-fallback" src="assets/hero.png" alt="The Voxa orb, glowing on a dark desktop"></noscript>
+    </div>
+    <div class="hero-orb-caption">LIVE RENDER — TAP THE ORB · <span id="orb-state-label">IDLE</span></div>
+
+    <!-- skin / palette switchers: the app does this by voice; here, by tap -->
+    <div class="orb-controls" id="orb-controls" hidden>
+      <div class="orb-control-row"><span class="orb-control-label">SKIN</span><div class="chip-row" id="skin-chips"></div></div>
+      <div class="orb-control-row"><span class="orb-control-label">PALETTE</span><div class="chip-row" id="palette-chips"></div></div>
+      <div class="orb-control-hint">IN THE APP YOU JUST SAY IT — “SET SKIN TO REACTOR. USE THE ICE PALETTE.”</div>
+    </div>
+  </div>
+
+  <h1>A voice in the machine. <span class="accent">Yours.</span></h1>
+  <p class="hero-sub">A private, local-first, open-source voice assistant that lives in a small glowing orb on your desktop. Tap it, talk — it talks back in realtime, and it can call tools. Bring your own model. Nothing leaves your machine.</p>
+
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/przemekzur/voxa/releases">Download<span data-platform-suffix></span> <span class="btn-glyph">↓</span></a>
+    <a class="btn btn-ghost" href="https://github.com/przemekzur/voxa">Star on GitHub <span class="btn-glyph">★</span></a>
+  </div>
+  <div class="hero-fineprint">WINDOWS · MACOS · LINUX — MIT LICENSE — NO ACCOUNT REQUIRED</div>
+</section>
+
+<!-- ── HOW IT WORKS ─────────────────────────────── -->
+<section class="band">
+  <div class="band-head">
+    <h2>How it works</h2>
+    <span class="band-index">01 // BOOT SEQUENCE</span>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">STEP 01</div>
+      <h3>Run the harness</h3>
+      <p>One npm start. The connector harness comes up on loopback with the Markdown brain already enabled.</p>
+      <code>cd packages/harness &amp;&amp; npm start</code>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 02</div>
+      <h3>Launch the orb</h3>
+      <p>A frameless, always-on-top Tauri orb lands on your desktop. It reads voxa-config.json and finds the harness.</p>
+      <code>cd packages/orb &amp;&amp; npm run tauri dev</code>
+    </div>
+    <div class="step">
+      <div class="step-num">STEP 03</div>
+      <h3>Tap and talk</h3>
+      <p>Open mic, low latency, barge-in — interrupt it mid-sentence. The model calls tools; the tools run on your machine.</p>
+      <code>“What’s on the Hacker News front page?”</code>
+    </div>
+  </div>
+
+  <!-- architecture -->
+  <div class="arch">
+    <span class="arch-label">YOUR MACHINE — NO BACKEND</span>
+    <div class="arch-top">
+      <div class="arch-box arch-box-orb">
+        <div class="arch-box-tag arch-tag-orange">ORB — TAURI</div>
+        <div class="arch-box-title">The thing you talk to</div>
+        <div class="arch-box-note">reads voxa-config.json</div>
+      </div>
+      <div class="arch-link">
+        <div>← VOICE / AUDIO →</div>
+        <div class="arch-link-dots">·····</div>
+        <div>← TOOL CALLS →</div>
+      </div>
+      <div class="arch-box">
+        <div class="arch-box-tag">REALTIME MODEL</div>
+        <div class="arch-box-title">Bring your own</div>
+        <div class="arch-box-note">Gemini Live (free) · OpenAI Realtime · local daemon</div>
+      </div>
+    </div>
+    <div class="arch-pipe">↓ GET/POST /api/voice/tools — LOOPBACK ONLY ↓</div>
+    <div class="arch-harness">
+      <div class="arch-harness-head">
+        <div class="arch-box-tag arch-tag-cyan">CONNECTOR HARNESS — :3010</div>
+        <div class="arch-box-note">node, zero deps</div>
+      </div>
+      <div class="arch-pills">
+        <span>memory — .md notes</span>
+        <span>21 connectors</span>
+        <span>forge — build-agent</span>
+      </div>
+    </div>
+    <p class="arch-foot">Any server speaking the tool contract is a valid tool source. Point Voxa at your own backend if you want — or at nothing at all.</p>
+  </div>
+</section>
+
+<!-- ── THE LOCAL BRAIN ─────────────────────────────── -->
+<section class="band">
+  <div class="split">
+    <div>
+      <span class="band-index">02 // MEMORY</span>
+      <h2 class="split-title">The local brain</h2>
+      <p class="split-body">Voxa searches, reads, and saves a folder of plain Markdown notes — by voice, offline, no API key. Point it at an Obsidian vault and talk to notes you already have.</p>
+      <ul class="mono-list">
+        <li><span class="accent">▸</span>memory_search · memory_read · memory_save · memory_list</li>
+        <li><span class="accent">▸</span>brainDir → any folder of .md files on disk</li>
+        <li><span class="accent">▸</span>works with the free Gemini Live tier — or fully offline</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><span>SESSION LOG</span><span class="cyan">● REC — LOCAL</span></div>
+      <div class="session-log">
+        <div class="log-line"><span class="log-who">YOU</span><span>“Remember the standup moved to 10am.”</span></div>
+        <div class="log-line"><span class="log-who log-voxa">VOXA</span><span class="log-reply">“Noted.” <span class="log-tool">→ memory_save · standup.md</span></span></div>
+        <div class="log-later">— LATER —</div>
+        <div class="log-line"><span class="log-who">YOU</span><span>“What time is standup?”</span></div>
+        <div class="log-line"><span class="log-who log-voxa">VOXA</span><span class="log-reply">“Standup’s at 10.”</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THE FORGE ─────────────────────────────── -->
+<section class="band">
+  <div class="split">
+    <div class="panel panel-orange">
+      <div class="panel-head panel-head-orange"><span>FORGE — BUILD-AGENT</span><span>SPEC ONLY · NO EVAL</span></div>
+      <div class="forge-run">“Build me a connector for the OpenWeather API.”
+
+<span class="forge-dim">→ forge.plan        declarative HTTP spec</span>
+<span class="forge-dim">→ forge.validate    schema + SSRF guard</span>
+<span class="forge-dim">→ forge.write       connectors/openweather/</span>
+
+<span class="cyan">✓ new tools live on next session — tap the orb</span></div>
+    </div>
+    <div>
+      <span class="band-index">03 // SELF-EXTENSION</span>
+      <h2 class="split-title">The Forge</h2>
+      <p class="split-body">Ask for a connector and Voxa builds it — from a safe, declarative, data-only HTTP spec. It never executes generated code. Great for any public REST API; the new tools are live the next time you tap the orb.</p>
+      <p class="forge-motto">spec → validate → write. No eval, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONNECTOR GRID ─────────────────────────────── -->
+<section class="band">
+  <div class="band-head">
+    <h2>21 connectors, shipped</h2>
+    <span class="band-index">04 // TOOLS</span>
+  </div>
+  <p class="band-sub">Each one is a single small ES module — no build step, no dependencies. The harness auto-discovers them; toggle, configure, and test at <span class="mono cyan">localhost:3010</span>.</p>
+
+  <div class="connector-grid">
+    <div class="conn"><div class="conn-name">Memory</div><div class="conn-id">memory/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Forge</div><div class="conn-id">forge/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Weather</div><div class="conn-id">weather/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Web Search</div><div class="conn-id">websearch/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">GitHub</div><div class="conn-id">github/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Hacker News</div><div class="conn-id">hackernews/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Wikipedia</div><div class="conn-id">wiki/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Crypto</div><div class="conn-id">crypto/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Currency</div><div class="conn-id">currency/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Spotify</div><div class="conn-id">spotify/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Timers</div><div class="conn-id">timers/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Lists</div><div class="conn-id">lists/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Screen</div><div class="conn-id">screen/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Observe</div><div class="conn-id">observe/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Claude Code</div><div class="conn-id">claude-code/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">External Agents</div><div class="conn-id">external-agents/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">X News</div><div class="conn-id">xcom-news/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Quotes</div><div class="conn-id">quotes/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Vibe Engine</div><div class="conn-id">vibeengine/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Vibe Play</div><div class="conn-id">vibeplay/index.mjs</div></div>
+    <div class="conn"><div class="conn-name">Echo (example)</div><div class="conn-id">example-echo/index.mjs</div></div>
+    <div class="conn conn-next"><div class="conn-name">+ yours, next</div><div class="conn-id">say: “build me a connector”</div></div>
+    <div class="conn conn-byo"><div class="conn-name">+ bring your own</div><div class="conn-id">any server speaking /api/voice/tools</div></div>
+    <div class="conn conn-note"><div>MCP-ADJACENT · NO BUILD STEP<br>THE LIST KEEPS GROWING</div></div>
+  </div>
+</section>
+
+<!-- ── SOULS & SKINS ─────────────────────────────── -->
+<section class="band" id="souls">
+  <div class="band-head">
+    <h2>Souls &amp; skins</h2>
+    <span class="band-index">05 // APPEARANCE</span>
+  </div>
+  <p class="band-sub">Seven personas × ten skins × eight palettes — switchable live, by voice. <em class="quote">“Set skin to reactor. Use the ice palette.”</em> Custom skins and palettes go in config; no recompile.</p>
+
+  <img class="skins-fig" src="assets/skins.png" alt="The ten built-in orb skins, each with its own palette">
+  <div class="fig-caption">FIG. — TEN BUILT-IN SKINS, EACH THEMEABLE ACROSS EIGHT PALETTES</div>
+
+  <div class="souls-grid" id="souls-grid">
+    <div class="soul" data-soul="Voxa" data-line="Standup's at 10. I moved the note — anything else?" data-pitch="1.0" data-rate="1.0" data-hint="female">
+      <div class="soul-head"><span class="soul-name">Voxa</span><span class="soul-voice">voice: Leda</span></div>
+      <p class="soul-tag">Calm, sharp, quietly powerful. The default.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“Standup's at 10. I moved the note — anything else?”</span></div>
+    </div>
+    <div class="soul" data-soul="Butler" data-line="Already done. The forecast is dreadful, incidentally." data-pitch="0.8" data-rate="0.92" data-hint="male-uk">
+      <div class="soul-head"><span class="soul-name">Butler</span><span class="soul-voice">voice: Charon</span></div>
+      <p class="soul-tag">Dry wit, unflappable, two steps ahead.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“Already done. The forecast is dreadful, incidentally.”</span></div>
+    </div>
+    <div class="soul" data-soul="Spark" data-line="On it — weather's clear, build passed, you're good." data-pitch="1.15" data-rate="1.12" data-hint="female">
+      <div class="soul-head"><span class="soul-name">Spark</span><span class="soul-voice">voice: Aoede</span></div>
+      <p class="soul-tag">Warmer, brisk, can-do — a lighter touch.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“On it — weather's clear, build passed, you're good.”</span></div>
+    </div>
+    <div class="soul" data-soul="Sage" data-line="Saved. Nothing else needs your attention." data-pitch="0.95" data-rate="0.85" data-hint="female-low">
+      <div class="soul-head"><span class="soul-name">Sage</span><span class="soul-voice">voice: Kore</span></div>
+      <p class="soul-tag">Minimal and thoughtful — built for deep focus.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“Saved. Nothing else needs your attention.”</span></div>
+    </div>
+    <div class="soul" data-soul="Mission Control" data-line="Copy. Timer set. Standing by." data-pitch="0.85" data-rate="1.0" data-hint="male-us">
+      <div class="soul-head"><span class="soul-name">Mission Control</span><span class="soul-voice">voice: Fenrir</span></div>
+      <p class="soul-tag">Terse, professional, status-report cadence.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“Copy. Timer set. Standing by.”</span></div>
+    </div>
+    <div class="soul" data-soul="Companion" data-line="That's three tasks down today — want me to queue the next one?" data-pitch="1.1" data-rate="1.0" data-hint="female-warm">
+      <div class="soul-head"><span class="soul-name">Companion</span><span class="soul-voice">voice: Leda</span></div>
+      <p class="soul-tag">Warm, conversational, an encouraging presence.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“That's three tasks down today — want me to queue the next one?”</span></div>
+    </div>
+    <div class="soul" data-soul="Gremlin" data-line="You asked me to remember that? Fine. Remembered. Genius stuff." data-pitch="1.2" data-rate="1.15" data-hint="impish">
+      <div class="soul-head"><span class="soul-name">Gremlin</span><span class="soul-voice">voice: Puck</span></div>
+      <p class="soul-tag">Sardonic and sharp-tongued — but quietly brilliant.</p>
+      <div class="soul-play"><button type="button" class="play-btn">▶ HEAR IT</button><span class="soul-line">“You asked me to remember that? Fine. Remembered. Genius stuff.”</span></div>
+    </div>
+  </div>
+  <div class="souls-note" id="souls-note">PREVIEWS USE YOUR BROWSER'S SPEECH ENGINE AS A STAND-IN — THE SHIPPED VOICES ARE THE REALTIME MODEL'S (LEDA, CHARON, AOEDE, KORE, FENRIR, PUCK).</div>
+
+  <div class="palette-row">
+    <span class="palette-row-label">8 PALETTES —</span>
+    <span class="palette-dot"><span class="dot" style="--c:#FFA149;--glow:rgba(255,161,73,0.6)"></span>ember</span>
+    <span class="palette-dot"><span class="dot" style="--c:#6EC8FF;--glow:rgba(110,200,255,0.6)"></span>ice</span>
+    <span class="palette-dot"><span class="dot" style="--c:#C07CFF;--glow:rgba(192,124,255,0.6)"></span>violet</span>
+    <span class="palette-dot"><span class="dot" style="--c:#4ADE9C;--glow:rgba(74,222,156,0.6)"></span>emerald</span>
+    <span class="palette-dot"><span class="dot" style="--c:#FF7A9C;--glow:rgba(255,122,156,0.6)"></span>sunset</span>
+    <span class="palette-dot"><span class="dot" style="--c:#58E6C4;--glow:rgba(88,230,196,0.6)"></span>aurora</span>
+    <span class="palette-dot"><span class="dot" style="--c:#E86BFF;--glow:rgba(232,107,255,0.6)"></span>plasma</span>
+    <span class="palette-dot"><span class="dot" style="--c:#FFD75E;--glow:rgba(255,215,94,0.6)"></span>solar</span>
+  </div>
+</section>
+
+<!-- ── PRIVACY STRIP ─────────────────────────────── -->
+<section class="privacy">
+  <div class="privacy-inner">
+    <span class="band-index accent">06 // PRIVACY — BY DESIGN, NOT BY POLICY</span>
+    <div class="privacy-grid">
+      <div class="privacy-item">No account.<br><span>There is nothing to sign up for.</span></div>
+      <div class="privacy-item">No telemetry.<br><span>Voxa phones nobody home.</span></div>
+      <div class="privacy-item">No backend.<br><span>The harness runs on loopback.</span></div>
+      <div class="privacy-item">Keys in a local file.<br><span>voxa-config.json, on your disk.</span></div>
+      <div class="privacy-item">Notes are Markdown.<br><span>Plain files. Yours to grep.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER CTA ─────────────────────────────── -->
+<footer class="footer">
+  <div class="split split-top">
+    <div>
+      <h2 class="footer-title">Two commands.<br>Then talk.</h2>
+      <p class="footer-body">Rust stable + Node 18. Paste a free Gemini API key when prompted — it's stored locally — allow the mic, and say something.</p>
+      <div class="cta-row cta-row-left">
+        <a class="btn btn-primary btn-sm" href="https://github.com/przemekzur/voxa/releases">Download<span data-platform-suffix></span></a>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/przemekzur/voxa">Star on GitHub ★</a>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><span>QUICK START</span><span>bash</span></div>
+      <pre class="quickstart"><span class="dim"># 1 — the connector harness (brain ships enabled)</span>
+cd packages/harness &amp;&amp; npm install
+npm start                <span class="cyan"># http://localhost:3010</span>
+
+<span class="dim"># 2 — the orb</span>
+cd ../orb &amp;&amp; npm install
+npm run tauri dev</pre>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <span class="footer-brand">VOXA</span>
+    <span>PRIVATE BY DESIGN · FAST BY HABIT · USEFUL BEFORE IT IS IMPRESSIVE</span>
+    <span><a href="https://github.com/przemekzur/voxa">GITHUB</a> — MIT LICENSE</span>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
